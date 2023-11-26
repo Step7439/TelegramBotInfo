@@ -1,0 +1,58 @@
+[
+  {
+    "bodyEng": "because - потому что",
+    "id" : "1"
+  },
+  {
+    "bodyEng": "part - часть",
+    "id" : "2"
+  },
+  {
+    "bodyEng": "also - тоже",
+    "id" : "3"
+  },
+  {
+    "bodyEng": "depends - зависит",
+    "id" : "4"
+  },
+  {
+    "bodyEng": "example - пример",
+    "id" : "5"
+  },
+  {
+    "bodyEng": "put - класть",
+    "id" : "6"
+  },
+  {
+    "bodyEng": "access - доступ",
+    "id" : "7"
+  },
+  {
+    "bodyEng": "condition - состояние",
+    "id" : "8"
+  },
+  {
+    "bodyEng": "variables - переменая",
+    "id" : "9"
+  },
+  {
+    "bodyEng": "declared - объявленный",
+    "id" : "10"
+  },
+  {
+    "bodyEng": "that - тот",
+    "id" : "11"
+  },
+  {
+    "bodyEng": "executes - выполняет",
+    "id" : "12"
+  },
+  {
+    "bodyEng": "available - доступный",
+    "id" : "13"
+  },
+  {
+    "bodyEng": "assent - утверждать",
+    "id" : "14"
+  }
+]
