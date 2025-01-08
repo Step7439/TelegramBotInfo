@@ -10,4 +10,5 @@ public class Eng {
     @Id
     Long id;
     String bodyEng;
+    String transl;
 }

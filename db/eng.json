@@ -1,58 +1,502 @@
 [
   {
-    "bodyEng": "because - потому что",
-    "id" : "1"
+    "bodyEng": "because",
+    "transl": "потому что",
+    "id": 1
   },
   {
-    "bodyEng": "part - часть",
-    "id" : "2"
+    "bodyEng": "and",
+    "transl": "и",
+    "id": 2
   },
   {
-    "bodyEng": "also - тоже",
-    "id" : "3"
+    "bodyEng": "or",
+    "transl": "или",
+    "id": 3
   },
   {
-    "bodyEng": "depends - зависит",
-    "id" : "4"
+    "bodyEng": "but",
+    "transl": "но",
+    "id": 4
   },
   {
-    "bodyEng": "example - пример",
-    "id" : "5"
+    "bodyEng": "if",
+    "transl": "если",
+    "id": 5
   },
   {
-    "bodyEng": "put - класть",
-    "id" : "6"
+    "bodyEng": "then",
+    "transl": "тогда",
+    "id": 6
   },
   {
-    "bodyEng": "access - доступ",
-    "id" : "7"
+    "bodyEng": "so",
+    "transl": "так что",
+    "id": 7
   },
   {
-    "bodyEng": "condition - состояние",
-    "id" : "8"
+    "bodyEng": "when",
+    "transl": "когда",
+    "id": 8
   },
   {
-    "bodyEng": "variables - переменая",
-    "id" : "9"
+    "bodyEng": "however",
+    "transl": "однако",
+    "id": 9
   },
   {
-    "bodyEng": "declared - объявленный",
-    "id" : "10"
+    "bodyEng": "although",
+    "transl": "хотя",
+    "id": 10
   },
   {
-    "bodyEng": "that - тот",
-    "id" : "11"
+    "bodyEng": "while",
+    "transl": "пока",
+    "id": 11
   },
   {
-    "bodyEng": "executes - выполняет",
-    "id" : "12"
+    "bodyEng": "since",
+    "transl": "поскольку",
+    "id": 12
   },
   {
-    "bodyEng": "available - доступный",
-    "id" : "13"
+    "bodyEng": "until",
+    "transl": "до тех пор пока",
+    "id": 13
   },
   {
-    "bodyEng": "assent - утверждать",
-    "id" : "14"
+    "bodyEng": "before",
+    "transl": "перед тем как",
+    "id": 14
+  },
+  {
+    "bodyEng": "after",
+    "transl": "после того как",
+    "id": 15
+  },
+  {
+    "bodyEng": "as",
+    "transl": "как",
+    "id": 16
+  },
+  {
+    "bodyEng": "like",
+    "transl": "как будто",
+    "id": 17
+  },
+  {
+    "bodyEng": "for example",
+    "transl": "например",
+    "id": 18
+  },
+  {
+    "bodyEng": "in fact",
+    "transl": "в действительности",
+    "id": 19
+  },
+  {
+    "bodyEng": "nevertheless",
+    "transl": "тем не менее",
+    "id": 20
+  },
+  {
+    "bodyEng": "therefore",
+    "transl": "поэтому",
+    "id": 21
+  },
+  {
+    "bodyEng": "moreover",
+    "transl": "более того",
+    "id": 22
+  },
+  {
+    "bodyEng": "furthermore",
+    "transl": "кроме того",
+    "id": 23
+  },
+  {
+    "bodyEng": "on the other hand",
+    "transl": "с другой стороны",
+    "id": 24
+  },
+  {
+    "bodyEng": "nonetheless",
+    "transl": "несмотря на это",
+    "id": 25
+  },
+  {
+    "bodyEng": "notwithstanding",
+    "transl": "несмотря на то что",
+    "id": 26
+  },
+  {
+    "bodyEng": "meanwhile",
+    "transl": "между тем",
+    "id": 27
+  },
+  {
+    "bodyEng": "whereas",
+    "transl": "в то время как",
+    "id": 28
+  },
+  {
+    "bodyEng": "consequently",
+    "transl": "следовательно",
+    "id": 29
+  },
+  {
+    "bodyEng": "accordingly",
+    "transl": "соответственно",
+    "id": 30
+  },
+  {
+    "bodyEng": "hence",
+    "transl": "следовательно",
+    "id": 31
+  },
+  {
+    "bodyEng": "thus",
+    "transl": "таким образом",
+    "id": 32
+  },
+  {
+    "bodyEng": "otherwise",
+    "transl": "иначе",
+    "id": 33
+  },
+  {
+    "bodyEng": "besides",
+    "transl": "кроме того",
+    "id": 34
+  },
+  {
+    "bodyEng": "instead",
+    "transl": "вместо этого",
+    "id": 35
+  },
+  {
+    "bodyEng": "rather",
+    "transl": "скорее",
+    "id": 36
+  },
+  {
+    "bodyEng": "only if",
+    "transl": "только если",
+    "id": 37
+  },
+  {
+    "bodyEng": "provided that",
+    "transl": "при условии что",
+    "id": 38
+  },
+  {
+    "bodyEng": "even though",
+    "transl": "даже несмотря на то что",
+    "id": 39
+  },
+  {
+    "bodyEng": "regardless of",
+    "transl": "независимо от",
+    "id": 40
+  },
+  {
+    "bodyEng": "in spite of",
+    "transl": "несмотря на",
+    "id": 41
+  },
+  {
+    "bodyEng": "due to",
+    "transl": "из-за",
+    "id": 42
+  },
+  {
+    "bodyEng": "owing to",
+    "transl": "благодаря тому что",
+    "id": 43
+  },
+  {
+    "bodyEng": "except for",
+    "transl": "за исключением",
+    "id": 44
+  },
+  {
+    "bodyEng": "unless",
+    "transl": "если только не",
+    "id": 45
+  },
+  {
+    "bodyEng": "lest",
+    "transl": "чтобы не",
+    "id": 46
+  },
+  {
+    "bodyEng": "supposing that",
+    "transl": "предполагая что",
+    "id": 47
+  },
+  {
+    "bodyEng": "granted that",
+    "transl": "признавая что",
+    "id": 48
+  },
+  {
+    "bodyEng": "assuming that",
+    "transl": "предполагая что",
+    "id": 49
+  },
+  {
+    "bodyEng": "considering that",
+    "transl": "учитывая что",
+    "id": 50
+  },
+  {
+    "bodyEng": "given that",
+    "transl": "учитывая что",
+    "id": 51
+  },
+  {
+    "bodyEng": "presumably",
+    "transl": "предположительно",
+    "id": 52
+  },
+  {
+    "bodyEng": "apparently",
+    "transl": "очевидно",
+    "id": 53
+  },
+  {
+    "bodyEng": "evidently",
+    "transl": "явно",
+    "id": 54
+  },
+  {
+    "bodyEng": "obviously",
+    "transl": "очевидно",
+    "id": 55
+  },
+  {
+    "bodyEng": "undoubtedly",
+    "transl": "без сомнения",
+    "id": 56
+  },
+  {
+    "bodyEng": "certainly",
+    "transl": "конечно",
+    "id": 57
+  },
+  {
+    "bodyEng": "surely",
+    "transl": "несомненно",
+    "id": 58
+  },
+  {
+    "bodyEng": "definitely",
+    "transl": "определенно",
+    "id": 59
+  },
+  {
+    "bodyEng": "absolutely",
+    "transl": "абсолютно",
+    "id": 60
+  },
+  {
+    "bodyEng": "positively",
+    "transl": "положительно",
+    "id": 61
+  },
+  {
+    "bodyEng": "clearly",
+    "transl": "ясно",
+    "id": 62
+  },
+  {
+    "bodyEng": "plainly",
+    "transl": "откровенно",
+    "id": 63
+  },
+  {
+    "bodyEng": "manifestly",
+    "transl": "явно",
+    "id": 64
+  },
+  {
+    "bodyEng": "indisputably",
+    "transl": "неоспоримо",
+    "id": 65
+  },
+  {
+    "bodyEng": "beyond doubt",
+    "transl": "без сомнения",
+    "id": 66
+  },
+  {
+    "bodyEng": "without question",
+    "transl": "без сомнений",
+    "id": 67
+  },
+  {
+    "bodyEng": "no doubt",
+    "transl": "без сомнения",
+    "id": 68
+  },
+  {
+    "bodyEng": "of course",
+    "transl": "конечно",
+    "id": 69
+  },
+  {
+    "bodyEng": "naturally",
+    "transl": "естественно",
+    "id": 70
+  },
+  {
+    "bodyEng": "needless to say",
+    "transl": "само собой разумеется",
+    "id": 71
+  },
+  {
+    "bodyEng": "doubtless",
+    "transl": "без сомнения",
+    "id": 72
+  },
+  {
+    "bodyEng": "unquestionably",
+    "transl": "безусловно",
+    "id": 73
+  },
+  {
+    "bodyEng": "inevitably",
+    "transl": "неизбежно",
+    "id": 74
+  },
+  {
+    "bodyEng": "inexorably",
+    "transl": "неминуемо",
+    "id": 75
+  },
+  {
+    "bodyEng": "irrefutably",
+    "transl": "неоспоримо",
+    "id": 76
+  },
+  {
+    "bodyEng": "incontrovertibly",
+    "transl": "бесспорно",
+    "id": 77
+  },
+  {
+    "bodyEng": "indubitably",
+    "transl": "несомненно",
+    "id": 78
+  },
+  {
+    "bodyEng": "decidedly",
+    "transl": "решительно",
+    "id": 79
+  },
+  {
+    "bodyEng": "unequivocally",
+    "transl": "недвусмысленно",
+    "id": 80
+  },
+  {
+    "bodyEng": "unmistakably",
+    "transl": "несомненно",
+    "id": 81
+  },
+  {
+    "bodyEng": "undeniably",
+    "transl": "неоспоримо",
+    "id": 82
+  },
+  {
+    "bodyEng": "unarguably",
+    "transl": "неоспоримо",
+    "id": 83
+  },
+  {
+    "bodyEng": "patently",
+    "transl": "явно",
+    "id": 84
+  },
+  {
+    "bodyEng": "palpably",
+    "transl": "явно",
+    "id": 85
+  },
+  {
+    "bodyEng": "self-evidently",
+    "transl": "само собой разумеется",
+    "id": 86
+  },
+  {
+    "bodyEng": "axiomatically",
+    "transl": "аксиоматически",
+    "id": 87
+  },
+  {
+    "bodyEng": "tautologically",
+    "transl": "таутологически",
+    "id": 88
+  },
+  {
+    "bodyEng": "trivially",
+    "transl": "тривиально",
+    "id": 89
+  },
+  {
+    "bodyEng": "elementarily",
+    "transl": "элементарно",
+    "id": 90
+  },
+  {
+    "bodyEng": "intuitively",
+    "transl": "интуитивно",
+    "id": 91
+  },
+  {
+    "bodyEng": "instinctively",
+    "transl": "инстинктивно",
+    "id": 92
+  },
+  {
+    "bodyEng": "automatically",
+    "transl": "автоматически",
+    "id": 93
+  },
+  {
+    "bodyEng": "mechanically",
+    "transl": "механически",
+    "id": 94
+  },
+  {
+    "bodyEng": "necessarily",
+    "transl": "необходимо",
+    "id": 95
+  },
+  {
+    "bodyEng": "logically",
+    "transl": "логично",
+    "id": 96
+  },
+  {
+    "bodyEng": "rationally",
+    "transl": "рационально",
+    "id": 97
+  },
+  {
+    "bodyEng": "coherently",
+    "transl": "связно",
+    "id": 98
+  },
+  {
+    "bodyEng": "consistently",
+    "transl": "последовательно",
+    "id": 99
+  },
+  {
+    "bodyEng": "systematically",
+    "transl": "систематически",
+    "id": 100
   }
 ]
