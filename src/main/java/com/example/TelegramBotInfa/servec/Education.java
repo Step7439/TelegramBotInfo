@@ -11,6 +11,7 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import com.example.TelegramBotInfa.config.ConfigBot;
 import com.example.TelegramBotInfa.model.Title;
 import com.example.TelegramBotInfa.repo.RepoTitle;
 import com.vdurmont.emoji.EmojiParser;
@@ -20,14 +21,18 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-public class Education {
+public class Education extends TelegramBot {
 
+    public Education(ConfigBot configBot) {
+        super(configBot);
+        //TODO Auto-generated constructor stub
+    }
     String NEXT = "";
     String str;
     private final long JAVA_ID = 57;
     private RepoTitle repoTitle;
     
-    private void javaNext(String title, long chatId) {
+    public void javaNext(String title, long chatId) throws TelegramApiException {
         SendMessage message = new SendMessage();
         message.setChatId(chatId);
         message.setText(title);
@@ -57,7 +62,7 @@ public class Education {
         executeMessag(message);
     }
 
-     private void engNext(String title, String trans, long chatId) {
+     public void engNext(String title, String trans, long chatId) throws TelegramApiException {
         str = trans;
         SendMessage message = new SendMessage();
         message.setChatId(chatId);
@@ -67,16 +72,9 @@ public class Education {
         executeMessag(message);
 }
 
-    private Optional<Title> getRandomJava() {
+    public Optional<Title> getRandomJava() {
         var r = new Random();
         var randomId = r.nextLong(JAVA_ID) + 1;
         return repoTitle.findById(randomId);
     }
-    private void executeMessag(SendMessage message) {
-        try {
-            executeMessag(message);
-        } catch (TelegramApiException e) {
-            log.error("Error :" + e.getMessage());
-        }
-    }
-}
+ }

@@ -205,7 +205,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
     }
 
-    private void executeMessag(SendMessage message) {
+    public void executeMessag(SendMessage message) {
         try {
             execute(message);
         } catch (TelegramApiException e) {
