@@ -10,7 +10,9 @@ import com.example.TelegramBotInfa.repo.RepoUsers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.vdurmont.emoji.EmojiParser;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -20,9 +22,7 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
 import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeDefault;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
@@ -35,19 +35,23 @@ import java.io.File;
 public class TelegramBot extends TelegramLongPollingBot {
     final ConfigBot configBot;
     @Autowired
-    public RepoUsers repoUser;
+    RepoTitle repoTitle;
     @Autowired
-    private RepoTitle repoTitle;
+    RepoEng repoEng;
     @Autowired
-    private RepoEng repoEng;
+    RepoUsers repoUser;
     private final String NEXT_JAVA = "NEXT_JAVA";
     private final String NEXT_ENG = "NEXT_ENG";
     String NEXT = "";
-    private final long JAVA_ID = 57;
-    private final long ENG_ID = 100;
-    String messagText ;
+    String messagText;
     String str;
-
+    TelegramBot telegramBot;
+    @Autowired
+    EducationJava educationJava;
+    @Autowired
+    EducationEnglish english;
+   
+    @SuppressWarnings("deprecation")
     public TelegramBot(ConfigBot configBot) {
         this.configBot = configBot;
         menuBot();
@@ -58,8 +62,9 @@ public class TelegramBot extends TelegramLongPollingBot {
         if (update.hasMessage() && update.getMessage().hasText()) {
             messagText = update.getMessage().getText();
             ReplyKeyboardMarkup keyboardMac = new ReplyKeyboardMarkup();
+            keyboardMac.setResizeKeyboard(true);
             long chatId = update.getMessage().getChatId();
-
+            //----------------Общие меню-------------------
             if (messagText.equals("/start")) {
                 try {
                     registUser(update.getMessage());
@@ -70,61 +75,44 @@ public class TelegramBot extends TelegramLongPollingBot {
                 startCommand(chatId, update.getMessage().getChat().getFirstName());
             } else if (messagText.equals("/education")) {
                 sendMessageReply(keyboardMac, chatId, messagText);
-                fileAddJava();
-                fileAddEng();
-            } else if (messagText.equals("/java")) {
-                NEXT = NEXT_JAVA;
-                var title = getRandomJava();
-                title.ifPresent(valueBody -> titleNextButtonMenu(valueBody.getBodyJava(), chatId));
-            } else if (messagText.equals("/english") || messagText.equals(str)) {
-                NEXT = NEXT_ENG;
+            } 
+            else if (messagText.equals("/db")) {
+                 fileAddJava();
+                 fileAddEng();
+            } 
+            else if (messagText.equals("/java")) {
+                 NEXT = NEXT_JAVA;
+                
+                try {
+                    execute(educationJava.nextJava(chatId));
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+                
+                } else if (messagText.equals("/english") || messagText.equals(str)) {
                 sendMesseg(chatId, "Напечатай перевод");
-                var eng = getRandomEng();
-                eng.ifPresent(valueEng -> titleNextKeyboard(valueEng.getBodyEng(), valueEng.getTransl(), chatId));
-            } else {
+
+                try {
+                    execute(english.nextEng(chatId));
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+                
+             } else {
                 sendMesseg(chatId, "Not Found");
             }
-//            switch (messagText) {
-//                case "/start" -> {
-//                    try {
-//                        registUser(update.getMessage());
-//                    } catch (TelegramApiException e) {
-//                        log.error("Error Register user " + e.getMessage());
-//                    }
-//                    log.info("register user " + update.getMessage().getChat().getUserName());
-//                    startCommand(chatId, update.getMessage().getChat().getFirstName());
-//                }
-//                case "/education" -> {
-//                    sendMessageReply(keyboardMac, chatId, messagText);
-//                    fileAddJava();
-//                    fileAddEng();
-//                }
-//                case "/java" -> {
-//                    NEXT = NEXT_JAVA;
-//                    var title = getRandomJava();
-//                    title.ifPresent(valueBody -> titleNextButtonMenu(valueBody.getBodyJava(), chatId));
-//                }
-//                case "/english", str -> {
-//                    NEXT = NEXT_ENG;
-//                    var eng = getRandomEng();
-//                    eng.ifPresent(valueEng -> titleNextKeyboard(valueEng.getBodyEng(), valueEng.getTransl(), chatId));
-//                }
-//                default -> sendMesseg(chatId, "Not Found");
-//            }
+        //----------------Работа с кнопками-----------------
         } else if (update.hasCallbackQuery()) {
             String callbackData = update.getCallbackQuery().getData();
             long chatId = update.getCallbackQuery().getMessage().getChatId();
 
-            switch (callbackData) {
-
-                case NEXT_JAVA -> {
-                    var title = getRandomJava();
-                    title.ifPresent(valueBody -> titleNextButtonMenu(valueBody.getBodyJava(), chatId));
+            if (callbackData.equals(NEXT_JAVA)) {
+                try {
+                    execute(educationJava.nextJava(chatId));
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
                 }
-//                case NEXT_ENG -> {
-//                    var engs = getRandomEng();
-//                    engs.ifPresent(valueEng -> titleNextKeyboard(valueEng.getBodyEng(), valueEng.getTransl(), chatId));
-//                }
+                
             }
         }
     }
@@ -147,7 +135,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         executeMessag(message);
     }
-
+    //-------------------Работа с клавиатурай--------------------
     private void sendMessageReply(ReplyKeyboardMarkup markup, long chatId, String text) {
         SendMessage message = new SendMessage();
         message.setChatId(String.valueOf(chatId));
@@ -158,7 +146,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         executeMessag(message);
     }
-
+    //----------------Меню Education---------------------
     private List<KeyboardRow> menuKeyboard() {
         List<KeyboardRow> keyboardRows = new ArrayList<>();
         var row = new KeyboardRow();
@@ -168,7 +156,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         keyboardRows.add(row);
         return keyboardRows;
     }
-
+    //-----------------Работа с файломи Java------------------
     private void fileAddJava() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
@@ -180,7 +168,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             log.error("Error File Title" + e.getMessage());
         }
     }
-
+    //-----------------Работа с файломи Eng------------------
     private void fileAddEng() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
@@ -192,10 +180,10 @@ public class TelegramBot extends TelegramLongPollingBot {
             log.error("Error File Eng" + e.getMessage());
         }
     }
-
+    //-----------------Создания меню------------------
     private void menuBot() {
         List<BotCommand> list = new ArrayList<>();
-        list.add(new BotCommand("/start", "Погнали заниматься"));
+        list.add(new BotCommand("/start", "Регестрация"));
         list.add(new BotCommand("/education", "Изучаем"));
 
         try {
@@ -204,7 +192,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             log.error("Error BotComand" + e.getMessage());
         }
     }
-
+    //------------------Отправка собщения--------------------
     public void executeMessag(SendMessage message) {
         try {
             execute(message);
@@ -212,12 +200,12 @@ public class TelegramBot extends TelegramLongPollingBot {
             log.error("Error :" + e.getMessage());
         }
     }
-
+    //------------------Приветсвие------------------------
     private void startCommand(long chatId, String name) {
         String answer = EmojiParser.parseToUnicode("Привет " + name + "\uD83D\uDE0A" + ":blush: ");
         sendMesseg(chatId, answer);
     }
-
+    //--------------Регестрация и добовления user в базу-----------------
     private void registUser(Message message) throws TelegramApiException {
         if (repoUser.findById(message.getChatId()).isEmpty()) {
             var chatId = message.getChatId();
@@ -230,60 +218,4 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
     }
 
-    private void titleNextButtonMenu(String title, long chatId) {
-        SendMessage message = new SendMessage();
-        message.setChatId(chatId);
-        message.setText(title);
-        InlineKeyboardMarkup markup = new InlineKeyboardMarkup();
-        List<List<InlineKeyboardButton>> listButton = new ArrayList<>();
-        List<InlineKeyboardButton> buttons = new ArrayList<>();
-
-        var titleButton = new InlineKeyboardButton();
-
-         titleButton.setText(EmojiParser.parseToUnicode("Следущий" + " \uD83E\uDD16"));
-             titleButton.setCallbackData(NEXT);
-
-//         if (NEXT == NEXT_ENG) {
-//             titleButton.setText(EmojiParser.parseToUnicode("Следущий" + " \uD83C\uDDF1\uD83C\uDDF7"));
-//             titleButton.setCallbackData(NEXT);
-//         } else {
-//             titleButton.setText(EmojiParser.parseToUnicode("Следущий" + " \uD83E\uDD16"));
-//             titleButton.setCallbackData(NEXT);
-//         }
-
-        buttons.add(titleButton);
-
-        listButton.add(buttons);
-        markup.setKeyboard(listButton);
-        message.setReplyMarkup(markup);
-
-        executeMessag(message);
-    }
-
-    private void titleNextKeyboard(String title, String trans, long chatId) {
-        Update update = new Update();
-        SendMessage message = new SendMessage();
-        message.setChatId(chatId);
-        message.setText(title);
-        str = trans;
-        executeMessag(message);
-//        if(messegText.equals(trans)){
-//
-//        }else{
-//            sendMesseg(chatId, "Not За шел!");
-//        }
-
-}
-
-    private Optional<Title> getRandomJava() {
-        var r = new Random();
-        var randomId = r.nextLong(JAVA_ID) + 1;
-        return repoTitle.findById(randomId);
-    }
-
-    private Optional<Eng> getRandomEng() {
-        var r = new Random();
-        var randomId = r.nextLong(ENG_ID) + 1;
-        return repoEng.findById(randomId);
-    }
 }

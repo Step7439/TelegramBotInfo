@@ -1,0 +1,9 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic"
+}
+{
+    "terminal.integrated.shellArgs.linux": ["--init-file", "</home/stephan/.bashrc>"],
+    "terminal.integrated.env.linux": {
+        "PROMPT_COMMAND": "export PS1='\\W\\$ '"
+    },
+}
