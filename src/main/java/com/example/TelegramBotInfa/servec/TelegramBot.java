@@ -44,7 +44,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     private final String NEXT_ENG = "NEXT_ENG";
     String NEXT = "";
     String messagText;
-    String str;
+    public static String str;
     TelegramBot telegramBot;
     @Autowired
     EducationJava educationJava;
@@ -89,7 +89,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     e.printStackTrace();
                 }
                 
-                } else if (messagText.equals("/english") || messagText.equals(str)) {
+                } else if (messagText.equals("/english") || messagText.equalsIgnoreCase(str)) {
                 sendMesseg(chatId, "Напечатай перевод");
 
                 try {

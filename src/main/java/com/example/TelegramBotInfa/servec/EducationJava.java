@@ -23,7 +23,6 @@ import lombok.extern.slf4j.Slf4j;
 public class EducationJava {
     
         String NEXT = "NEXT_JAVA";
-        String str;
         private final long JAVA_ID = 57;
         @Autowired
         public RepoTitle repoTitle;
