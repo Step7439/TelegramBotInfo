@@ -77,7 +77,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                 sendMessageReply(keyboardMac, chatId, messagText);
             } 
             else if (messagText.equals("/db")) {
-                 fileAddJava();
+               //  fileAddJava();
                  fileAddEng();
             } 
             else if (messagText.equals("/java")) {
@@ -173,7 +173,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             TypeFactory typeFactory = objectMapper.getTypeFactory();
-            List<Eng> titleList = objectMapper.readValue(new File("/bot/db/eng.json"),
+            List<Eng> titleList = objectMapper.readValue(new File("/home/stepan/db/eng.json"),
                     typeFactory.constructCollectionType(List.class, Eng.class));
             repoEng.saveAll(titleList);
         } catch (Exception e) {
