@@ -1,10 +1,12 @@
 com/example/TelegramBotInfa/servec/TelegramBot.class
+com/example/TelegramBotInfa/repo/RepoUsers.class
+com/example/TelegramBotInfa/servec/EducationEnglish.class
+com/example/TelegramBotInfa/config/init.class
+com/example/TelegramBotInfa/repo/RepoEng.class
+com/example/TelegramBotInfa/model/Title.class
 com/example/TelegramBotInfa/TelegramBotInfaApplication.class
 com/example/TelegramBotInfa/repo/RepoTitle.class
-com/example/TelegramBotInfa/repo/RepoUsers.class
+com/example/TelegramBotInfa/servec/EducationJava.class
 com/example/TelegramBotInfa/config/ConfigBot.class
-com/example/TelegramBotInfa/config/init.class
 com/example/TelegramBotInfa/model/Eng.class
-com/example/TelegramBotInfa/repo/RepoEng.class
 com/example/TelegramBotInfa/model/Users.class
-com/example/TelegramBotInfa/model/Title.class

@@ -15,7 +15,7 @@ import jakarta.persistence.EntityNotFoundException;
 @Service
 public class EducationEnglish {
 
-    private final long ENG_ID = 2;
+    private final long ENG_ID = 100;
     @Autowired
     private RepoEng repoEng;
 
@@ -25,7 +25,7 @@ public class EducationEnglish {
         SendMessage message = new SendMessage();
         message.setChatId(chatId);
         message.setParseMode("MarkdownV2");
-        message.setText(eng.getBodyEng() + "  " + trans);
+        message.setText(eng.getBodyEng() + "  " + "||" + trans + "||");
         TelegramBot.str = trans;
         return message;
     }

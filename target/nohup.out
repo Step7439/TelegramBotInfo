@@ -1,0 +1,30 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.5)
+
+2025-02-18T21:49:41.546+09:00  INFO 9972 --- [           main] c.e.T.TelegramBotInfaApplication         : Starting TelegramBotInfaApplication v0.0.1-SNAPSHOT using Java 17.0.14 with PID 9972 (/home/stepan/school21/java/bot/TelegramBotInfo/target/TelegramBotInfa-0.0.1-SNAPSHOT.jar started by stepan in /home/stepan/school21/java/bot/TelegramBotInfo/target)
+2025-02-18T21:49:41.552+09:00  INFO 9972 --- [           main] c.e.T.TelegramBotInfaApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-02-18T21:49:42.707+09:00  INFO 9972 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-18T21:49:42.943+09:00  INFO 9972 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 214 ms. Found 3 JPA repository interfaces.
+2025-02-18T21:49:44.099+09:00  INFO 9972 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-18T21:49:44.307+09:00  INFO 9972 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.13.Final
+2025-02-18T21:49:44.314+09:00  INFO 9972 --- [           main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2025-02-18T21:49:45.078+09:00  INFO 9972 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-18T21:49:45.186+09:00  INFO 9972 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-18T21:49:45.532+09:00  INFO 9972 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@18c5069b
+2025-02-18T21:49:45.540+09:00  INFO 9972 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-18T21:49:48.001+09:00  INFO 9972 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-18T21:49:48.138+09:00  INFO 9972 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-18T21:49:55.486+09:00  INFO 9972 --- [           main] c.e.T.TelegramBotInfaApplication         : Started TelegramBotInfaApplication in 15.234 seconds (process running for 16.631)
+Hibernate: select u1_0.id,u1_0.name,u1_0.timestamp from users u1_0 where u1_0.id=?
+2025-02-18T21:50:21.696+09:00  INFO 9972 --- [legram Executor] c.e.TelegramBotInfa.servec.TelegramBot   : register user StepanZam
+Hibernate: select t1_0.id,t1_0.body_java from title t1_0 where t1_0.id=?
+Hibernate: select t1_0.id,t1_0.body_java from title t1_0 where t1_0.id=?
+Hibernate: select e1_0.id,e1_0.body_eng,e1_0.transl from eng e1_0 where e1_0.id=?
+Hibernate: select t1_0.id,t1_0.body_java from title t1_0 where t1_0.id=?
+Hibernate: select e1_0.id,e1_0.body_eng,e1_0.transl from eng e1_0 where e1_0.id=?

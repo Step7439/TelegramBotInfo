@@ -3,8 +3,10 @@
 /home/stepan/school21/java/bot/TelegramBotInfo/src/main/java/com/example/TelegramBotInfa/config/init.java
 /home/stepan/school21/java/bot/TelegramBotInfo/src/main/java/com/example/TelegramBotInfa/config/ConfigBot.java
 /home/stepan/school21/java/bot/TelegramBotInfo/src/main/java/com/example/TelegramBotInfa/servec/TelegramBot.java
+/home/stepan/school21/java/bot/TelegramBotInfo/src/main/java/com/example/TelegramBotInfa/servec/EducationEnglish.java
 /home/stepan/school21/java/bot/TelegramBotInfo/src/main/java/com/example/TelegramBotInfa/repo/RepoUsers.java
 /home/stepan/school21/java/bot/TelegramBotInfo/src/main/java/com/example/TelegramBotInfa/repo/RepoEng.java
 /home/stepan/school21/java/bot/TelegramBotInfo/src/main/java/com/example/TelegramBotInfa/TelegramBotInfaApplication.java
 /home/stepan/school21/java/bot/TelegramBotInfo/src/main/java/com/example/TelegramBotInfa/model/Users.java
+/home/stepan/school21/java/bot/TelegramBotInfo/src/main/java/com/example/TelegramBotInfa/servec/EducationJava.java
 /home/stepan/school21/java/bot/TelegramBotInfo/src/main/java/com/example/TelegramBotInfa/repo/RepoTitle.java

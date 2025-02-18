@@ -41,7 +41,6 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Autowired
     RepoUsers repoUser;
     private final String NEXT_JAVA = "NEXT_JAVA";
-    private final String NEXT_ENG = "NEXT_ENG";
     String NEXT = "";
     String messagText;
     public static String str;
@@ -77,7 +76,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                 sendMessageReply(keyboardMac, chatId, messagText);
             } 
             else if (messagText.equals("/db")) {
-               //  fileAddJava();
+                 fileAddJava();
                  fileAddEng();
             } 
             else if (messagText.equals("/java")) {
